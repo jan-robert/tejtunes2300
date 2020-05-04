@@ -9,7 +9,7 @@
         style="width: 1000px"
       >
         <span class="font-weight-thin">Now Playing:</span>
-        <span class="mt-2 mb-4 font-weight-bold">{{ songTitle }}</span>
+        <span class="mt-2 mb-4 font-weight-bold" style="max-width: 700px">{{ songTitle }}</span>
 
         <youtube
           :video-id="videoId"
