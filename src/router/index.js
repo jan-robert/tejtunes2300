@@ -11,22 +11,34 @@ Vue.use(VueRouter)
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      title: 'Home | TEJ Tunes'
+    }
   },
   {
     path: '/listen',
     name: 'Listen',
-    component: Listen
+    component: Listen,
+    meta: {
+      title: 'Listen | TEJ Tunes'
+    }
   },
   {
     path: '/addsong',
     name: 'AddSong',
-    component: AddSong
+    component: AddSong,
+    meta: {
+      title: 'Add Song | TEJ Tunes'
+    }
   },
   {
     path: '/editsong',
     name: 'EditSong',
-    component: EditSong
+    component: EditSong,
+    meta: {
+      title: 'Edit Song | TEJ Tunes'
+    }
   },
 ]
 

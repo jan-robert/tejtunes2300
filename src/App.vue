@@ -57,6 +57,15 @@
         { text: 'Edit Song', icon: 'mdi-file-edit', route: '/editsong' },
       ],
     }),
+    watch: {
+      $route: {
+        immediate: true,
+        // eslint-disable-next-line no-unused-vars
+        handler(to, from) {
+          document.title = to.meta.title || 'TEJ Tunes';
+        }
+      },
+    },
     created () {
       this.$vuetify.theme.dark = true
     },
