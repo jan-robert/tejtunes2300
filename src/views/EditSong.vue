@@ -23,6 +23,9 @@
             class="mb-4"
             style="width: 300px"
             v-model="password"
+            :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+            @click:append="showPassword = !showPassword"
+            :type="showPassword ? 'text' : 'password'"
             :rules="passwordRules"
             label="Password"
             required
@@ -155,6 +158,7 @@ export default {
         // eslint-disable-next-line no-useless-escape
         v => (/^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/).test(v) || 'Must be a YouTube link.'
       ],
+      showPassword: false,
       password: '',
       passwordRules: [
         v => !!v || 'Password is required',
