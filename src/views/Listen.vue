@@ -58,7 +58,6 @@ export default {
         this.songTitle = song.title
       }
       this.$refs.youtube.player.loadVideoById(this.videoId)
-      this.$refs.youtube.player.setVolume(10)
     }
   }
 }
