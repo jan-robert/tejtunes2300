@@ -32,8 +32,8 @@
                 <v-icon dark>mdi-play</v-icon>
               </v-btn>
             </td>
-            <td class="text-truncate">{{ item.title }}</td>
-            <td class="text-truncate">{{ item.artist }}</td>
+            <td class="text-truncate" style="max-width: 200px">{{ item.title }}</td>
+            <td class="text-truncate" style="max-width: 150px">{{ item.artist }}</td>
             <td class="text-truncate">{{ item.genre }}</td>
           </tr>
         </tbody>
