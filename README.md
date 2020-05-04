@@ -1,5 +1,7 @@
 # tejtunes2300
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/264807c9-5738-4fa4-981b-5059994057ef/deploy-status)](https://app.netlify.com/sites/tejtunes/deploys)
+
 ## Project setup
 ```
 npm install
