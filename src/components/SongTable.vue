@@ -32,9 +32,19 @@
                 <v-icon dark>mdi-play</v-icon>
               </v-btn>
             </td>
-            <td class="text-truncate" style="max-width: 200px">{{ item.title }}</td>
-            <td class="text-truncate" style="max-width: 150px">{{ item.artist }}</td>
+            <td v-on="on" class="text-truncate" style="max-width: 200px" @click="copyID(item)">{{ item.title }}</td>
+            <td class="text-truncate" style="max-width: 125px">{{ item.artist }}</td>
             <td class="text-truncate">{{ item.genre }}</td>
+            <td>
+              <v-tooltip top>
+                <template v-slot:activator="{ on }">
+                  <v-btn icon v-on="on" @click="copyID(item.id)">
+                    <v-icon>mdi-content-copy</v-icon>
+                  </v-btn>
+                </template>
+                <span class="caption">Click to copy to clipboard</span>
+              </v-tooltip>
+            </td>
           </tr>
         </tbody>
       </template>
@@ -53,7 +63,8 @@ export default {
       keys: [
         { name: 'Title' },
         { name: 'Artist' },
-        { name: 'Genre' }
+        { name: 'Genre' },
+        { name: 'ID' }
       ],
       searchQuery: null,
       items: null
@@ -63,7 +74,11 @@ export default {
     try {
       await db.collection('songs').get().then(querySnapshot => {
         this.items = querySnapshot.docs.map(doc => doc.data())
+        for (let i = 0; i < this.items.length; i++) {
+          Object.assign(this.items[i], { id: querySnapshot.docs[i].id })
+        }
       })
+      console.log(this.items)
       this.loaded = true
       this.playSong(this.items[Math.floor(Math.random()*this.items.length)])
     } catch (err) {
@@ -89,6 +104,9 @@ export default {
         "title": song.title
       }
       this.$emit('playSong', message)
+    },
+    copyID (id) {
+      this.$copyText(id)
     }
   },
 }
@@ -98,6 +116,6 @@ export default {
 <style scoped>
 .btnheader {
   height: 47px;
-  width: 40px;
+  width: 1px;
 }
 </style>
